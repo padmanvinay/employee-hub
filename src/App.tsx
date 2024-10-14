@@ -1,7 +1,9 @@
+/* eslint-disable react/react-in-jsx-scope */
+import { Outlet } from 'react-router-dom';
 import './App.css';
 
 function App() {
-  return <div>asdas</div>;
+  return <Outlet />;
 }
 
 export default App;
