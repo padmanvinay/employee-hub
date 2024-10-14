@@ -13,6 +13,7 @@ const AppRouter = () => {
       children: [
         {
           element: <ProtectedRoute />,
+          path: '/',
           children: [
             {
               element: <HomePage />,
