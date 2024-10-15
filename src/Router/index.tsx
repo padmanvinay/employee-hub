@@ -1,5 +1,5 @@
 /* eslint-disable react/react-in-jsx-scope */
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
 import App from '../App';
 import ProtectedRoute from './ProtectedRoute';
 import HomePage from '../Pages/Home';
@@ -12,8 +12,11 @@ const AppRouter = () => {
       element: <App />,
       children: [
         {
+          index: true,
+          element: <Navigate to="/home" replace />,
+        },
+        {
           element: <ProtectedRoute />,
-          path: '/',
           children: [
             {
               element: <HomePage />,

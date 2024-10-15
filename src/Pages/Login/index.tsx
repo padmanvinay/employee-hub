@@ -1,6 +1,6 @@
 /* eslint-disable react/react-in-jsx-scope */
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Button } from '../../components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../../components/ui/card';
 import { Input } from '../../components/ui/input';
@@ -30,6 +30,16 @@ const Login = () => {
   const [companyName, setCompanyName] = useState('');
   const [registerError, setRegisterError] = useState(DEFAULT_REGISTER_ERROR);
   const [loginError, setLoginError] = useState(DEFAULT_LOGIN_ERROR);
+
+  useEffect(() => {
+    setName('');
+    setMobileNumber('');
+    setCompanyName('');
+    setEmail('');
+    setPassword('');
+    setRegisterError(DEFAULT_REGISTER_ERROR);
+    setLoginError(DEFAULT_LOGIN_ERROR);
+  }, [activeTab]);
 
   const handleLogin = (event: React.FormEvent) => {
     event.preventDefault();
@@ -93,7 +103,7 @@ const Login = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen	bg-gray-100">
+    <div className="flex justify-center items-center h-screen">
       <Card className="w-[25rem]">
         <CardHeader>
           <CardTitle className="text-2xl font-bold text-center">Welcome</CardTitle>
